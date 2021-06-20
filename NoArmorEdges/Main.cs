@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System.Reflection;
 using VRage.Plugins;
 
 namespace avaness.NoArmorEdges
@@ -12,8 +13,7 @@ namespace avaness.NoArmorEdges
 
         public void Init(object gameInstance)
         {
-            Harmony harmony = new Harmony("avaness.NoArmorEdges");
-            harmony.PatchAll();
+            new Harmony("avaness.NoArmorEdges").PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public void Update()
